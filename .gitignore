@@ -1,0 +1,21 @@
+# Local/generated patent data
+data/cleaned/
+data/raw/
+*.db
+*.sqlite
+*.sqlite3
+
+# Runtime logs
+*.log
+outputs/*.log
+
+# Python cache/build artifacts
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+
+# Local environment files
+.env
+.venv/
+venv/

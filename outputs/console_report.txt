@@ -1,0 +1,52 @@
+=======================================================
+PATENT REPORT
+=======================================================
+Total Patents: 9,075,421
+
+Top Inventors:
+1. Shunpei Yamazaki - 6603 patents
+2. Kia Silverbrook - 4778 patents
+3. Tao Luo - 3727 patents
+4. Kangguo Cheng - 2760 patents
+5. Jonathan P. Ive - 2710 patents
+6. Frederick E. Shelton, IV - 2508 patents
+7. Junyi Li - 2420 patents
+8. Duncan Robert Kerr - 2299 patents
+9. Peter Gaal - 2285 patents
+10. Bartley K. Andre - 2253 patents
+
+Top Companies:
+1. International Business Machines Corporation - 161822 patents
+2. SAMSUNG ELECTRONICS CO., LTD. - 160256 patents
+3. Canon Kabushiki Kaisha - 88222 patents
+4. Sony Group Corporation - 61131 patents
+5. FUJITSU LIMITED - 55547 patents
+6. KABUSHIKI KAISHA TOSHIBA - 52921 patents
+7. General Electric Company - 51289 patents
+8. Intel Corporation - 51042 patents
+9. LG ELECTRONICS INC. - 47325 patents
+10. HITACHI, LTD. - 44875 patents
+
+Top Countries:
+1. US - 4748367 patents
+2. JP - 1515064 patents
+3. DE - 567335 patents
+4. KR - 385346 patents
+5. CN - 345940 patents
+6. TW - 279933 patents
+7. GB - 246137 patents
+8. FR - 233067 patents
+9. CA - 226507 patents
+10. CH - 106792 patents
+
+Files created in outputs folder:
+- top_inventors.csv
+- top_companies.csv
+- top_countries.csv
+- yearly_trends.csv
+- country_trends.csv
+- join_query_results.csv
+- cte_query_results.csv
+- ranking_query_results.csv
+- report.json
+- console_report.txt

@@ -1,0 +1,149 @@
+{
+  "total_patents": 9075421,
+  "top_inventors": [
+    {
+      "inventor_id": "fl:sh_ln:yamazaki-49",
+      "name": "Shunpei Yamazaki",
+      "patent_count": 6603
+    },
+    {
+      "inventor_id": "fl:ki_ln:silverbrook-1",
+      "name": "Kia Silverbrook",
+      "patent_count": 4778
+    },
+    {
+      "inventor_id": "fl:ta_ln:luo-5",
+      "name": "Tao Luo",
+      "patent_count": 3727
+    },
+    {
+      "inventor_id": "fl:ka_ln:cheng-77",
+      "name": "Kangguo Cheng",
+      "patent_count": 2760
+    },
+    {
+      "inventor_id": "fl:jo_ln:ive-2",
+      "name": "Jonathan P. Ive",
+      "patent_count": 2710
+    },
+    {
+      "inventor_id": "fl:fr_ln:shelton-5",
+      "name": "Frederick E. Shelton, IV",
+      "patent_count": 2508
+    },
+    {
+      "inventor_id": "fl:ju_ln:li-187",
+      "name": "Junyi Li",
+      "patent_count": 2420
+    },
+    {
+      "inventor_id": "fl:du_ln:kerr-1",
+      "name": "Duncan Robert Kerr",
+      "patent_count": 2299
+    },
+    {
+      "inventor_id": "fl:pe_ln:gaal-1",
+      "name": "Peter Gaal",
+      "patent_count": 2285
+    },
+    {
+      "inventor_id": "fl:ba_ln:andre-5",
+      "name": "Bartley K. Andre",
+      "patent_count": 2253
+    }
+  ],
+  "top_companies": [
+    {
+      "company_id": "55541eef-98de-4c63-aad3-5f8b3e502d0f",
+      "name": "International Business Machines Corporation",
+      "patent_count": 161822
+    },
+    {
+      "company_id": "b4062af8-b41f-4fa2-bfa7-5982709cea1f",
+      "name": "SAMSUNG ELECTRONICS CO., LTD.",
+      "patent_count": 160256
+    },
+    {
+      "company_id": "50581de5-4c41-40a2-92dd-6b0fdc9766d2",
+      "name": "Canon Kabushiki Kaisha",
+      "patent_count": 88222
+    },
+    {
+      "company_id": "9f570156-e301-487d-8359-d3b69e0641bb",
+      "name": "Sony Group Corporation",
+      "patent_count": 61131
+    },
+    {
+      "company_id": "f4ed069a-7602-45be-b2e5-2c518aa05481",
+      "name": "FUJITSU LIMITED",
+      "patent_count": 55547
+    },
+    {
+      "company_id": "bc6f8825-e6fa-4151-b3c4-68677f23805e",
+      "name": "KABUSHIKI KAISHA TOSHIBA",
+      "patent_count": 52921
+    },
+    {
+      "company_id": "6e6c14b1-e4c3-46ee-89e2-90a6a971b547",
+      "name": "General Electric Company",
+      "patent_count": 51289
+    },
+    {
+      "company_id": "e942f2ed-93e6-4bcc-8975-2558556d9f6c",
+      "name": "Intel Corporation",
+      "patent_count": 51042
+    },
+    {
+      "company_id": "32cd0a9e-dcbe-482f-9bd5-be35d118f9b2",
+      "name": "LG ELECTRONICS INC.",
+      "patent_count": 47325
+    },
+    {
+      "company_id": "5e70fd1f-052c-442e-b0a1-68cc51d538ea",
+      "name": "HITACHI, LTD.",
+      "patent_count": 44875
+    }
+  ],
+  "top_countries": [
+    {
+      "country": "US",
+      "patent_count": 4748367
+    },
+    {
+      "country": "JP",
+      "patent_count": 1515064
+    },
+    {
+      "country": "DE",
+      "patent_count": 567335
+    },
+    {
+      "country": "KR",
+      "patent_count": 385346
+    },
+    {
+      "country": "CN",
+      "patent_count": 345940
+    },
+    {
+      "country": "TW",
+      "patent_count": 279933
+    },
+    {
+      "country": "GB",
+      "patent_count": 246137
+    },
+    {
+      "country": "FR",
+      "patent_count": 233067
+    },
+    {
+      "country": "CA",
+      "patent_count": 226507
+    },
+    {
+      "country": "CH",
+      "patent_count": 106792
+    }
+  ]
+}
