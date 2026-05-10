@@ -1,5 +1,7 @@
 from pathlib import Path
 import csv
+import json
+import os
 import sqlite3
 
 from flask import Flask, jsonify, render_template_string, request
@@ -8,6 +10,7 @@ from flask import Flask, jsonify, render_template_string, request
 PROJECT_DIR = Path(__file__).resolve().parents[1]
 DB_PATH = PROJECT_DIR / "patents.db"
 OUTPUT_DIR = PROJECT_DIR / "outputs"
+SUMMARY_PATH = OUTPUT_DIR / "dashboard_summary.json"
 DISPLAY_START_YEAR = 1976
 DISPLAY_END_YEAR = 2025
 
@@ -29,6 +32,14 @@ def read_csv(name):
         return [dict(row) for row in csv.DictReader(f)]
 
 
+def read_summary():
+    if not SUMMARY_PATH.exists():
+        return {}
+
+    with open(SUMMARY_PATH, encoding="utf-8") as f:
+        return json.load(f)
+
+
 def int_fields(records, fields):
     for record in records:
         for field in fields:
@@ -44,6 +55,26 @@ def rows(conn, query, params=()):
 def scalar(conn, query, params=(), default=0):
     value = conn.execute(query, params).fetchone()
     return value[0] if value and value[0] is not None else default
+
+
+def total_metrics():
+    if DB_PATH.exists():
+        with connect() as conn:
+            return {
+                "total_inventors": scalar(conn, "SELECT COUNT(*) FROM inventors"),
+                "total_companies": scalar(conn, "SELECT COUNT(*) FROM companies"),
+                "total_countries": scalar(
+                    conn,
+                    "SELECT COUNT(DISTINCT country) FROM locations WHERE country IS NOT NULL AND country != ''",
+                ),
+            }
+
+    summary = read_summary()
+    return {
+        "total_inventors": summary.get("total_inventors", 0),
+        "total_companies": summary.get("total_companies", 0),
+        "total_countries": summary.get("total_countries", 0),
+    }
 
 
 def parse_int(value, fallback=None):
@@ -153,13 +184,7 @@ def dashboard_data():
     # These totals are from the fast summary layer. Country filtering narrows the
     # visible country chart; yearly filtering narrows trend-based metrics.
     total_patents = sum(row["patent_count"] for row in filtered_yearly)
-    with connect() as conn:
-        total_inventors = scalar(conn, "SELECT COUNT(*) FROM inventors")
-        total_companies = scalar(conn, "SELECT COUNT(*) FROM companies")
-        total_countries = scalar(
-            conn,
-            "SELECT COUNT(DISTINCT country) FROM locations WHERE country IS NOT NULL AND country != ''",
-        )
+    totals = total_metrics()
 
     peak_year = max(filtered_yearly, key=lambda row: row["patent_count"]) if filtered_yearly else None
     loaded_years = [row for row in filtered_yearly if row["patent_count"] > 0]
@@ -174,9 +199,9 @@ def dashboard_data():
             "filters": filters,
             "metrics": {
                 "total_patents": total_patents,
-                "total_inventors": total_inventors,
-                "total_companies": total_companies,
-                "total_countries": total_countries,
+                "total_inventors": totals["total_inventors"],
+                "total_companies": totals["total_companies"],
+                "total_countries": totals["total_countries"],
                 "year_range": f"{filters['start_year']}-{filters['end_year']}",
                 "peak_year": peak_year["year"] if peak_year else None,
                 "peak_year_patents": peak_year["patent_count"] if peak_year else 0,
@@ -797,6 +822,5 @@ DASHBOARD_HTML = r"""
 
 
 if __name__ == "__main__":
-    if not DB_PATH.exists():
-        raise SystemExit(f"Database not found: {DB_PATH}")
-    app.run(host="127.0.0.1", port=8501, debug=False, use_reloader=False)
+    port = int(os.environ.get("PORT", "8501"))
+    app.run(host="0.0.0.0", port=port, debug=False, use_reloader=False)
